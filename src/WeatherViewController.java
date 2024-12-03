@@ -8,11 +8,6 @@ import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
-
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 
 public class WeatherViewController {
@@ -68,7 +63,7 @@ public class WeatherViewController {
         imgBackground.setPreserveRatio(false);
     }
 
-    public void showErrorMessage() {
+    public void showErrorMessage() { //Show error label
         lblError.setOpacity(1);
     }
     public void clearErrorMessage() {
@@ -78,20 +73,22 @@ public class WeatherViewController {
         clearErrorMessage();
         String zipCode = txtZipCode.getText();
 
-        double[] latLong = ZipCodeToLatLong.getLatLong(zipCode);
+        double[] latLong = ZipCodeToLatLong.getLatLong(zipCode); //Get the lat long from ZipCodeToLatLong
         if (latLong[0] == 0 && latLong[1] == 0) {
-            showErrorMessage();
+            showErrorMessage(); //If no lat long, show error message
         }
         if (latLong[0] != 0 && latLong[1] != 0) {
             double latitude = latLong[0];
             double longitude = latLong[1];
-            WeatherData weather = WeatherService.getWeather(latitude, longitude);
+            WeatherData weather = WeatherService.getWeather(latitude, longitude); //Pass lat long into the weather service method and make a Weather Data object
+            //Set all the labels
             lblTemperature.setText("Temperature: " + weather.getTemperature() + "°F");
             lblWindSpeed.setText("Wind speed: " + weather.getWindSpeed() + " mph");
             lblWindDirection.setText("Wind Direction: " + weather.getCompassDirection());
             lblWeatherCondition.setText("Weather Condition: " + weather.getWeatherCode());
             lblLocation.setText("Location: " + ZipCodeToLatLong.getCity() +", " + ZipCodeToLatLong.getState());
             int weatherCode = weather.getWeatherNumericalCode();
+            //If it's night, turn brightness of the anchor pane down and moon image is displayed
             ColorAdjust colorAdjust = new ColorAdjust();
             if (weather.getIsDayOrNight() == 0) {
                 imgDayOrNight.setImage(moon);
@@ -100,11 +97,13 @@ public class WeatherViewController {
                 Overlay.setEffect(colorAdjust);
             }
             else {
+                //Ensure that if it's day, the brightness is default and sun image is displayed
                 colorAdjust.setBrightness(0);
                 imgDayOrNight.setImage(sun);
                 imgDayOrNight.setEffect(colorAdjust);
                 Overlay.setEffect(colorAdjust);
             }
+            //Switch case to set the image of the background based on the weather code
             switch (weatherCode) {
                 case 0:
                     imgBackground.setImage(clearSky);
