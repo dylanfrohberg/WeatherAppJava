@@ -1,13 +1,14 @@
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class WeatherViewController {
@@ -44,7 +45,11 @@ public class WeatherViewController {
     @FXML
     private AnchorPane Overlay;
 
-    private PauseTransition pauseTransition;
+    @FXML
+    private MenuButton menu;
+
+    @FXML
+    private AnchorPane aboutOverlay;
 
     private static final Image clearSky = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/clearsky.jpg");
     private static final Image snow = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/snow.jpg");
@@ -55,6 +60,8 @@ public class WeatherViewController {
     private static final Image foggy = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/foggy.jpg");
     private static final Image sun = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/sun.png");
     private static final Image moon = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/moon.png");
+
+
     @FXML
     public void initialize() {
         // Set fixed dimensions for images
@@ -62,7 +69,19 @@ public class WeatherViewController {
         imgBackground.setFitHeight(450);
         imgBackground.setPreserveRatio(false);
     }
-
+    @FXML
+    public void exitApplication(ActionEvent event) {
+        Stage stage = (Stage) menu.getScene().getWindow();
+        stage.close();
+    }
+    @FXML
+    public void showAbout() {
+        aboutOverlay.setVisible(true);
+    }
+    @FXML
+    public void closeAbout() {
+        aboutOverlay.setVisible(false);
+    }
     public void showErrorMessage() { //Show error label
         lblError.setOpacity(1);
     }
@@ -122,17 +141,27 @@ public class WeatherViewController {
                 case 51:
                 case 53:
                 case 55:
-                    imgBackground.setImage(rainy);
+                case 56:
+                case 57:
+                    imgBackground.setImage(rainy); // Treat drizzle and freezing drizzle as rainy
                     break;
                 case 61:
                 case 63:
                 case 65:
-                    imgBackground.setImage(rainy);
+                case 66:
+                case 67:
+                case 80:
+                case 81:
+                case 82:
+                    imgBackground.setImage(rainy); // Treat all rain and rain showers as rainy
                     break;
                 case 71:
                 case 73:
                 case 75:
-                    imgBackground.setImage(snow);
+                case 77:
+                case 85:
+                case 86:
+                    imgBackground.setImage(snow); // Treat all snow-related conditions as snowy
                     break;
                 case 95:
                 case 96:
@@ -143,6 +172,7 @@ public class WeatherViewController {
                     imgBackground.setImage(partlyCloudy); // Default image if no match
                     break;
             }
+
         }
     }
 }

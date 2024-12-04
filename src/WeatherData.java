@@ -96,33 +96,53 @@ Code	Description
             case 45:
                 return "Foggy";
             case 48:
-                return "Depositing Rime Fog"; //Fog and object are cold leaving ice on the object from the fog.
+                return "Depositing Rime Fog"; // Fog and object are cold leaving ice on the object from the fog.
             case 51:
                 return "Light Drizzle";
             case 53:
                 return "Moderate Drizzle";
             case 55:
                 return "Dense Drizzle";
+            case 56:
+                return "Light Freezing Drizzle";
+            case 57:
+                return "Dense Freezing Drizzle";
             case 61:
                 return "Light Rain";
             case 63:
                 return "Moderate Rain";
             case 65:
                 return "Heavy Rain";
+            case 66:
+                return "Light Freezing Rain";
+            case 67:
+                return "Heavy Freezing Rain";
             case 71:
-                return "Slight snow fall";
+                return "Slight Snowfall";
             case 73:
-                return "Moderate snow fall";
+                return "Moderate Snowfall";
             case 75:
-                return "Heavy and intense snow";
+                return "Heavy Snowfall";
+            case 77:
+                return "Snow Grains";
+            case 80:
+                return "Slight Rain Showers";
+            case 81:
+                return "Moderate Rain Showers";
+            case 82:
+                return "Violent Rain Showers";
+            case 85:
+                return "Slight Snow Showers";
+            case 86:
+                return "Heavy Snow Showers";
             case 95:
-                return "Thunderstorms";
+                return "Thunderstorms: Slight or Moderate";
             case 96:
-                return "Thunderstorms with light hail"; //Only available in central europe
+                return "Thunderstorms with Light Hail"; // Only available in Central Europe
             case 99:
-                return "Thunderstorms with heavy hail"; //Only available in central europe
+                return "Thunderstorms with Heavy Hail"; // Only available in Central Europe
             default:
-                return "Unknown weather condition";
+                return "Unknown Weather Code: " + weatherCode;
         }
     }
 

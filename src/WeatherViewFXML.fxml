@@ -16,14 +16,13 @@
         <ImageView fx:id="imgBackground" fitHeight="400.0" fitWidth="600.0" onKeyPressed="#getWeather" opacity="0.25" pickOnBounds="true" preserveRatio="true" />
 
         <!-- Weather Info Card -->
-        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f9fbff" height="270.0" layoutX="50.0" layoutY="100.0" opacity="0.95" stroke="#d9e4f1" strokeWidth="1.5" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 15, 0.5, 0, 4);" width="260.0" />
-
+        <Rectangle arcHeight="30.0" arcWidth="30.0" fill="#f9fbff" height="277.0" layoutX="8.0" layoutY="107.0" opacity="0.95" stroke="#d9e4f1" strokeWidth="1.5" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 15, 0.5, 0, 4);" width="325.0" />
 
         <!-- Weather Labels -->
-        <Label fx:id="lblTemperature" layoutX="59.0" layoutY="154.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Temperature:" />
-        <Label fx:id="lblWindSpeed" layoutX="60.0" layoutY="209.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Wind speed:" />
-        <Label fx:id="lblWindDirection" layoutX="60.0" layoutY="260.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Wind Direction:" />
-        <Label fx:id="lblWeatherCondition" layoutX="60.0" layoutY="311.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Weather Condition:" />
+        <Label fx:id="lblTemperature" layoutX="20.0" layoutY="164.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Temperature:" />
+        <Label fx:id="lblWindSpeed" layoutX="21.0" layoutY="219.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Wind speed:" />
+        <Label fx:id="lblWindDirection" layoutX="21.0" layoutY="270.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Wind Direction:" />
+        <Label fx:id="lblWeatherCondition" layoutX="21.0" layoutY="321.0" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #34495e;" text="Weather Condition:" />
 
         <!-- Input and Button -->
         <TextField fx:id="txtZipCode" layoutX="110.0" layoutY="47.0" onAction="#getWeather" promptText="Enter Zip Code Here" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #d1d8e0; -fx-border-width: 1; -fx-padding: 8; -fx-font-size: 14px;" />
@@ -33,10 +32,10 @@
         <Label fx:id="lblLocation" alignment="TOP_CENTER" layoutX="50.0" layoutY="10.0" prefHeight="25.0" prefWidth="500.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white; -fx-text-alignment: center;" text="Location:" textAlignment="CENTER" />
 
         <!-- Weather Icon -->
-        <ImageView fx:id="imgDayOrNight" fitHeight="265.0" fitWidth="238.0" layoutX="335.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0.4, 0, 2);" />
+        <ImageView fx:id="imgDayOrNight" fitHeight="265.0" fitWidth="238.0" layoutX="348.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0.4, 0, 2);" />
 
         <!-- Header -->
-        <Label layoutX="110.0" layoutY="110.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #3a7bd5; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.5, 0, 2);" text="Current Weather" />
+        <Label layoutX="80.0" layoutY="109.0" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #3a7bd5; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 8, 0.5, 0, 2);" text="Current Weather" />
 
         <!-- Error Label -->
         <Label fx:id="lblError" alignment="CENTER" layoutX="190.0" layoutY="5.0" opacity="0.0" prefHeight="25.0" prefWidth="220.0" style="-fx-text-fill: white; -fx-background-color: red; -fx-background-radius: 20; -fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 5; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.4, 0, 2);" text="Invalid Zip Code" textAlignment="CENTER">
@@ -44,16 +43,27 @@
                 <Font name="Corbel Bold Italic" size="22.0" />
             </font>
         </Label>
-      <MenuButton fx:id="menu" alignment="CENTER" layoutX="1.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #89CFF0, #1E90FF); -fx-border-color: blue;" text="Options" textAlignment="CENTER" textFill="WHITE">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </MenuButton>
 
+        <!-- Options Menu -->
+        <MenuButton fx:id="menu" alignment="CENTER" layoutX="1.0" layoutY="2.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(to bottom, #89CFF0, #1E90FF); -fx-border-color: blue;" text="Options" textAlignment="CENTER" textFill="WHITE">
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#showAbout" text="About" />
+                <MenuItem mnemonicParsing="false" onAction="#exitApplication" text="Exit" />
+            </items>
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </MenuButton>
+
+        <!-- About Overlay -->
+        <AnchorPane fx:id="aboutOverlay" layoutX="0" layoutY="0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: rgba(0, 0, 0, 0.8);" visible="false">
+            <children>
+                <Rectangle arcHeight="20.0" arcWidth="20.0" fill="white" height="300.0" layoutX="50.0" layoutY="50.0" opacity="0.95" stroke="lightgray" strokeWidth="1.0" width="500.0" />
+                <Label layoutX="215.0" layoutY="70.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: black;" text="About This Project" />
+                <Label layoutX="70.0" layoutY="110.0" prefWidth="460.0" style="-fx-font-size: 14px; -fx-text-fill: black; -fx-text-alignment: center;" text="This project is a JavaFX application is a final project for a Java course. It retrieves the weather for a given zip code and displays weather data including temperature, wind speed, direction, and condition. This application features two APIs: Open-Meteo for weather, and Zippopotam.us for translating a zip code to a latitude and longitude value. Development took place throughout late November to December 3rd of 2024. " wrapText="true" />
+                <Button layoutX="250.0" layoutY="330.0" mnemonicParsing="false" onAction="#closeAbout" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #1E90FF; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 10;" text="Close" />
+            </children>
+        </AnchorPane>
 
     </children>
 </AnchorPane>
