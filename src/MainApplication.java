@@ -1,31 +1,34 @@
-import java.io.IOException;
-import java.util.Scanner;
-//Console
-public class MainApplication {
-    public static void main(String[] args) throws IOException {
-            Scanner scan = new Scanner(System.in);
-            System.out.print("Enter Zip Code: ");
-            String zipCode = scan.next();
-            double[] latLong = ZipCodeToLatLong.getLatLong(zipCode);
-            if (latLong[0] != 0 && latLong[1] != 0) {
-                double latitude = latLong[0];
-                double longitude = latLong[1];
-                WeatherData weather = WeatherService.getWeather(latitude, longitude);
-                System.out.println("Current temperature: " + weather.getTemperature() + "°F");
-                System.out.println("Wind speed: " + weather.getWindSpeed() + "mph");
-                System.out.println("Wind Direction: " + weather.getCompassDirection());
-                System.out.println("Weather Condition: " + weather.getWeatherCode());
-                if (weather.getIsDayOrNight() == 0) {
-                    System.out.println("It is currently night time.");
-                }
-                else if (weather.getIsDayOrNight() == 1) {
-                    System.out.println("It is currently day time.");
-                }
-                else
-                    System.out.println("There has been an error fetching the time of day.");
-            } else {
-                System.out.println("Invalid latitude and longitude received.");
-            }
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
+public class MainApplication extends Application {
+    /* Zipcodes for Presentation
+        Norfolk: 68701
+        Alaska: 99501
+        Hawaii: 96815
+        Florida: 33101
+        Maine: 04101
+     */
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Image icon = new Image("img/icon.png");
+        primaryStage.setTitle("Current Weather App");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("WeatherViewFXML.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 600, 400);
+        primaryStage.setScene(scene);
+        primaryStage.getIcons().add(icon);
+
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
