@@ -24,7 +24,7 @@ public class MainApplication extends Application {
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setScene(scene);
         primaryStage.getIcons().add(icon);
-
+        primaryStage.setResizable(false); // prevents from making it full-screen ~Trevor
         primaryStage.show();
     }
 
