@@ -51,15 +51,15 @@ public class WeatherViewController {
     @FXML
     private AnchorPane aboutOverlay;
 
-    private static final Image clearSky = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/clearsky.jpg");
-    private static final Image snow = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/snow.jpg");
-    private static final Image thunderstorm = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/thunderstorm.jpg");
-    private static final Image cloudy = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/cloudy.jpg");
-    private static final Image rainy = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/rainy.jpg");
-    private static final Image partlyCloudy = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/partlycloudy.png");
-    private static final Image foggy = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/foggy.jpg");
-    private static final Image sun = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/sun.png");
-    private static final Image moon = new Image("file:/C:/Users/dfrohbe1/IdeaProjects/WeatherAppJava_Fall2024/src/img/moon.png");
+    private static final Image clearSky = new Image("img/clearsky.jpg");
+    private static final Image snow = new Image("img/snowy.jpg");
+    private static final Image thunderstorm = new Image("img/thunderstorm.jpg");
+    private static final Image cloudy = new Image("img/cloudy.jpg");
+    private static final Image rainy = new Image("img/rainy.jpg");
+    private static final Image partlyCloudy = new Image("img/partlycloudy.png");
+    private static final Image foggy = new Image("img/foggy.jpg");
+    private static final Image sun = new Image("img/sun.png");
+    private static final Image moon = new Image("img/moon.png");
 
 
     @FXML
