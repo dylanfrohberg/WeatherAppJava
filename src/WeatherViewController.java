@@ -52,7 +52,7 @@ public class WeatherViewController {
     private AnchorPane aboutOverlay;
 
     private static final Image clearSky = new Image("img/clearsky.jpg");
-    private static final Image snow = new Image("img/snow.jpg");
+    private static final Image snow = new Image("img/snowy.jpg");
     private static final Image thunderstorm = new Image("img/thunderstorm.jpg");
     private static final Image cloudy = new Image("img/cloudy.jpg");
     private static final Image rainy = new Image("img/rainy.jpg");
